@@ -3,6 +3,7 @@
 #you should also write code to test them. For practice, you should also comment your
 #functions as explained above.
 
+import random
 
 
 #PROBLEM 1 (8-ball - 5pts)
@@ -18,10 +19,29 @@ count on it", "My reply is no", "My sources say no", "Outlook \
 not so good", "Very doubtful" ]
 
 
+def eight(answers):
+    return answers(random.randrange(len(answers)))
+
+print(eight(answer_list))
+
+
+
+
 # PROBLEM 2 (Shuffle - 5pts)
 # A playing card consists of a suit (Heart, Diamond, Club, Spade) and a value (2,3,4,5,6,7,8,9,10,J,Q,K,A).
 # Create a list of all possible playing cards, which is a deck.
 # Then create a function that shuffles the deck, producing a random order.
+values = [2,3,4,5,6,7,8,9,10, "J", "Q", "K", "A"]
+suits = ["C", "S", "H", "D"]
+deck_of_cards=[]
+
+for j in range(52):
+    k = random.randrange(len(values))
+    i = random.randrange(len(suits))
+    single_card = print(k,i)
+    deck_of_cards.append(single_card)
+print(deck_of_cards)
+
 
 
 # PROBLEM 3 (The sieve of Eratosthenes - 10pts)
@@ -36,6 +56,22 @@ not so good", "Very doubtful" ]
 # Process all the numbers of the list in this way. When you have finished,
 # the only numbers left on the list are primes.
 # Use this method to determine all the primes between 1 and 1000.
+
+number = []
+for j in range(1,1001):
+    number.append(j)
+number[0] = 0
+for j in range(len(number)):
+    if number[j] != 0:
+        for i in range(len(number) - number[j]):
+            if number[i + number[j]] % number[j] == 0:
+                number[i + number[j]] = 0
+print(number)
+
+#I LOOKED AT SOMEONE ELSES TO HELP ME ON THIS PROBLEM BE CAUSE I GOT STUCK
+
+
+
 
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
 # Write a Tic-Tac-Toe program that allows two people to play the game against each other.
@@ -72,19 +108,45 @@ not so good", "Very doubtful" ]
 #       break
 #   switch player
 
+'''
+Player = True
+turns = 0
+column = [1,2,3]
+row = [1,2,3]
+
+
+def draw_board(board):
+    for j in range(3):
+        for i in range(3):
+
+
+def win(board, player):
+    #rows
+    for i in range(len(board)):
+        rows = 0
+        for j in range(len(board[i]))
+
+
+
+board = [[" "," "," "],[" "," "," "],[" "," "," "]]
+
+'''
+
+
+
 # CHALLENGE PROBLEM 5 (Battleship NO CREDIT, JUST IF YOU WANT TO TRY IT)
-# Create a program that is a simplified version of the game “Battleship.”
+# Create a program that is a simplified version of the game Battleship.
 # The computer creates (in memory) a grid that is 4 cells wide and 3 cells high.
 # The rows of the grid are numbered 1 to 3, and the columns of the grid are labeled A to D.
 # The computer hides a battleship in three random cells in the grid.
 # Each battleship occupies exactly one cell.
 # Battleships are not allowed to touch each other horizontally or vertically.
 # Make sure that the program places the battleships randomly, so not pre-configured.
-# The computer asks the player to “shoot” at cells of the grid.
+# The computer asks the player to shoot at cells of the grid.
 # The player does so by entering the column letter and row number of the cell
 # which she wants to shoot at (e.g., "D3").
-# If the cell which the player shoots at contains nothing, the computer responds with “Miss!”
-#  If the cell contains a battleship, the computer responds with “You sunk my battleship!”
+# If the cell which the player shoots at contains nothing, the computer responds with Miss!
+#  If the cell contains a battleship, the computer responds with You sunk my battleship!
 # and removes the battleship from the cell (i.e., a second shot at the same cell is a miss).
 # As soon as the player hits the last battleship, the computer responds with displaying
 # how many shots the player needed to shoot down all three battleships, and the program ends.
