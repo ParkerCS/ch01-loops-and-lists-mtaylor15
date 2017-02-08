@@ -1,3 +1,10 @@
+'''
+Made grade int(input("Enter grade"))
+You can't compare strings to numbers.
+
+quadratic equation problem should have a positive and negative b solution.  Your two solutions are identical.
+'''
+
 #CONDITIONS (15PTS TOTAL)
 
 # PROBLEM 1 (GPA - 4pts)
@@ -9,7 +16,7 @@
 # If the user enters a grade lower than zero or higher than 100, just give an error message.
 # Don't worry about making an exception for these right now.
 
-percentage_grade = input("Enter a percentage: ")
+percentage_grade = int(input("Enter a percentage: "))
 
 if percentage_grade > 100 or percentage_grade <0:
     print("Error")

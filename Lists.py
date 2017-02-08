@@ -1,3 +1,19 @@
+'''
+line 23, need to use [] instead of () when using list indices.  That fixes the problem.
+
+I added code to complete what I believe you were trying to do with the deck.
+The problem with the shuffler is that you are
+generating random cards.  That means that your deck
+will contain multiples of the same card, and that is not a proper shuffler.
+
+Thank you for indicating that you got help.
+Next time, let me know who from.
+
+Tic-tac-toe is largely unfinished.
+
+
+'''
+
 #LISTS (35PTS TOTAL)
 #In these exercises you write functions. Of course, you should not only write the functions,
 #you should also write code to test them. For practice, you should also comment your
@@ -18,9 +34,9 @@ now", "Cannot predict now", "Concentrate and ask again", "Don ' t \
 count on it", "My reply is no", "My sources say no", "Outlook \
 not so good", "Very doubtful" ]
 
-
+import random
 def eight(answers):
-    return answers(random.randrange(len(answers)))
+    return answers[random.randrange(len(answers))]
 
 print(eight(answer_list))
 
@@ -38,8 +54,8 @@ deck_of_cards=[]
 for j in range(52):
     k = random.randrange(len(values))
     i = random.randrange(len(suits))
-    single_card = print(k,i)
-    deck_of_cards.append(single_card)
+    #single_card = print(k,i)
+    deck_of_cards.append([values[k],suits[i]])
 print(deck_of_cards)
 
 
